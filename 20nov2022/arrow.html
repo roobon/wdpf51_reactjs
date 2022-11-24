@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow Functions</title>
+  </head>
+  <body>
+    <script>
+      let hello = function () {
+        document.write("Hello World from normal function");
+      };
+
+      hello();
+      // Arrow functions
+
+      let hello1 = (name, address) => 
+        document.write("<br>Hello " + name + address + " from arrow function");
+      
+
+      hello1("Rahim", "Dhanmondi");
+    </script>
+  </body>
+</html>

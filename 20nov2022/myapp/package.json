@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "\"Test\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "\"Syed Ziaul Habib\"",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "date-format": "^4.0.14"
+  }
+}
