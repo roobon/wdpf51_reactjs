@@ -17,7 +17,7 @@ function Contact() {
 
   return (
     <div className="col-sm-8">
-      <h2>Contact with us</h2>
+      <h2 className="bg-dark text-light">Contact with us</h2>
       <form className="form-horizontal" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>

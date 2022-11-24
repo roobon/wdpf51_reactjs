@@ -22,26 +22,31 @@ class LifeCycle extends React.Component {
   render() {
     console.log("LifeCycle Rendered");
     return (
-      <div>
+      <div className="col-sm-8">
         <h1>GeeksForGeeks.org, Hello{this.state.hello}</h1>
         <h2>
-          <a onClick={this.changeState.bind(this)}>Press Here!</a>
+          <a
+            className="btn btn-success btn-lg"
+            onClick={this.changeState.bind(this)}
+          >
+            Press Here!
+          </a>
         </h2>
       </div>
     );
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate()");
+    console.log("shouldComponentUpdate");
     return true;
   }
 
-  componentWillUpdate() {
-    console.log("componentWillUpdate()");
+  UNSAFE_componentWillUpdate() {
+    console.log("componentWillUpdate");
   }
 
   componentDidUpdate() {
-    console.log("componentDidUpdate()");
+    console.log("componentDidUpdate");
   }
 }
 

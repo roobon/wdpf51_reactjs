@@ -16,8 +16,8 @@ const UserList = () => {
           `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/users.php`
         )
         .then((res) => {
-          console.log(res.data.userlist.userdata);
-          setuser(res.data.userlist.userdata);
+          console.log(res.data.userdata);
+          setuser(res.data.userdata);
         });
     } catch (error) {
       throw error;
@@ -53,8 +53,10 @@ const UserList = () => {
       <Link to="/insert" className="btn btn-primary">
         Create User
       </Link>
+      <br />
+
       <table className="table table-striped">
-        <thead>
+        <thead className="bg-dark text-light">
           <tr>
             <th>ID</th>
             <th>Name</th>
