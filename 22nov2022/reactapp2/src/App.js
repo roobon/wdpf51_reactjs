@@ -11,7 +11,7 @@ function App() {
     <>
       <Header
         brand="The Computers Limited"
-        slogan="User computer in best way"
+        slogan="Use Your computer in best way"
       />
       <Navbar />
       <div className="container mt-5">

@@ -11,10 +11,14 @@ const UserList = () => {
   const [isuser, setuser] = useState([]);
   const alluser = async () => {
     try {
-      axios.get(`http://localhost/reactApi/users.php`).then((res) => {
-        console.log(res.data.userlist.userdata);
-        setuser(res.data.userlist.userdata);
-      });
+      axios
+        .get(
+          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/users.php`
+        )
+        .then((res) => {
+          console.log(res.data.userlist.userdata);
+          setuser(res.data.userlist.userdata);
+        });
     } catch (error) {
       throw error;
     }
@@ -28,9 +32,12 @@ const UserList = () => {
   const deleteUser = async (id) => {
     try {
       axios
-        .post(`http://292.468.0.305/Apicrud/deleteusers.php`, {
-          userids: id,
-        })
+        .post(
+          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/deleteusers.php`,
+          {
+            userids: id,
+          }
+        )
         .then((res) => {
           setuser([]);
           alluser();
@@ -43,34 +50,40 @@ const UserList = () => {
 
   return (
     <div className="col-sm-8">
-      <Link to="/insert" className="btn">
-        {" "}
-        Create User{" "}
+      <Link to="/insert" className="btn btn-primary">
+        Create User
       </Link>
       <table className="table table-striped">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Action</th>
-        </tr>
-        {isuser.map((item, index) => (
+        <thead>
           <tr>
-            <td>{index + 1}</td>
-            <td>{item.name}</td>
-            <td>{item.email}</td>
-            <td>
-              <Link to={`edit/${item.id}`} className="btn btn-outline-primary">
-                Edit
-              </Link>
-              <span
-                onClick={() => deleteConfirm(item.id)}
-                className="btn btn-outline-danger mx-2"
-              >
-                Delete
-              </span>
-            </td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
           </tr>
+        </thead>
+        {isuser.map((item, index) => (
+          <tbody>
+            <tr>
+              <td>{index + 1}</td>
+              <td>{item.name}</td>
+              <td>{item.email}</td>
+              <td>
+                <Link
+                  to={`edit/${item.id}`}
+                  className="btn btn-outline-primary"
+                >
+                  Edit
+                </Link>
+                <span
+                  onClick={() => deleteConfirm(item.id)}
+                  className="btn btn-outline-danger mx-2"
+                >
+                  Delete
+                </span>
+              </td>
+            </tr>
+          </tbody>
         ))}
       </table>
     </div>

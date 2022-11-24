@@ -1,10 +1,8 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    //console.log(props);
-    this.props = {};
   }
   render() {
     return (

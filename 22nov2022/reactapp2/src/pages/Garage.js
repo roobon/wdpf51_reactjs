@@ -1,9 +1,5 @@
 function Car(props) {
-  return (
-    <li className="alert alert-success">
-      I am {props.company} Car with {props.id}
-    </li>
-  );
+  return <li className="alert alert-success">I am {props.company} Car</li>;
 }
 
 function Garage() {
@@ -18,7 +14,7 @@ function Garage() {
     <div className="col-sm-8">
       <ul type="none">
         {cars.map((x) => (
-          <Car id={x.id} company={x.brand} />
+          <Car key={x.id} company={x.brand} />
         ))}
       </ul>
     </div>
