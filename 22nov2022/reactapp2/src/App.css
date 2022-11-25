@@ -1,6 +1,7 @@
 .outline {
   padding:20px;
   background-color: rgba(241, 221, 196, 0.314);
+  border-right: 3px solid black;
 }
 .App {
   text-align: center;
