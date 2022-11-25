@@ -33,7 +33,9 @@ const Edit = () => {
     }
   };
 
-  return <div>{isloaduser && <Edituser list={isuser} />}</div>;
+  return (
+    <div className="col-sm-8">{isloaduser && <Edituser list={isuser} />}</div>
+  );
 };
 
 export default Edit;

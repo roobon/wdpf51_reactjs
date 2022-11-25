@@ -9,10 +9,7 @@ const Edituser = (props) => {
     email: props.list.email,
   });
   const onChangeValue = (e) => {
-    setuserInfo({
-      ...userInfo,
-      [e.target.name]: e.target.value,
-    });
+    setuserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
   // Inserting a new user into the Database.
   const submitUser = async (event) => {
@@ -30,7 +27,7 @@ const Edituser = (props) => {
         )
         .then((res) => {
           console.log(res.data);
-          navigate(`/`);
+          navigate(`/users`);
           return;
         });
     } catch (error) {
@@ -39,34 +36,40 @@ const Edituser = (props) => {
   };
 
   return (
-    <form className="editForm" onSubmit={submitUser}>
-      <h2> Edit Form </h2>
-      <label htmlFor="_name">Name</label>
-      <input
-        type="text"
-        id="_name"
-        name="name"
-        value={userInfo.name}
-        onChange={onChangeValue}
-        placeholder="Enter name"
-        autoComplete="off"
-        required
-      />
-      <br /> <br />
-      <label htmlFor="_email">Email</label>
-      <input
-        type="email"
-        id="_email"
-        name="email"
-        value={userInfo.email}
-        onChange={onChangeValue}
-        placeholder="Enter email"
-        autoComplete="off"
-        required
-      />
-      <br /> <br />
-      <input type="submit" value="update" />
-    </form>
+    <div>
+      <form className="editForm" onSubmit={submitUser}>
+        <h2> Edit User Form </h2>
+        <label htmlFor="_name">Name</label>
+        <input
+          type="text"
+          id="_name"
+          name="name"
+          value={userInfo.name}
+          onChange={onChangeValue}
+          placeholder="Enter name"
+          autoComplete="off"
+          required
+        />
+        <br /> <br />
+        <label htmlFor="_email">Email</label>
+        <input
+          type="email"
+          id="_email"
+          name="email"
+          value={userInfo.email}
+          onChange={onChangeValue}
+          placeholder="Enter email"
+          autoComplete="off"
+          required
+        />
+        <br /> <br />
+        <input
+          className="btn btn-secondary btn-lg"
+          type="submit"
+          value="UPDATE"
+        />
+      </form>
+    </div>
   );
 };
 
