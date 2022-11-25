@@ -10,18 +10,13 @@ const UserList = () => {
 
   const [isuser, setuser] = useState([]);
   const alluser = async () => {
-    try {
-      axios
-        .get(
-          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/users.php`
-        )
-        .then((res) => {
-          console.log(res.data.userdata);
-          setuser(res.data.userdata);
-        });
-    } catch (error) {
-      throw error;
-    }
+    axios
+      .get(`http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/users.php`)
+      .then((res) => {
+        //console.log(res.data.userdata);
+        setuser(res.data.userdata);
+      })
+      .then((error) => console.log(error));
   };
 
   const deleteConfirm = (id) => {

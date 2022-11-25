@@ -11,7 +11,6 @@ import Colors from "./components/colors/colors";
 import reportWebVitals from "./reportWebVitals";
 import LifeCycle from "./components/LifeCycle/LifeCycle";
 import UserList from "./users/UserList";
-import Dashboard from "./backend/Dashboard";
 
 export default function RouterApp() {
   return (
@@ -25,7 +24,6 @@ export default function RouterApp() {
           <Route path="/colors" element={<Colors />} />
           <Route path="/lifecycle" element={<LifeCycle />} />
           <Route path="/users" element={<UserList />} />
-          <Route path="/admin" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -35,7 +33,4 @@ export default function RouterApp() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterApp />);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
