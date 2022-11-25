@@ -22,7 +22,7 @@ const Edituser = (props) => {
           {
             username: userInfo.name,
             useremail: userInfo.email,
-            userids: props.list.user_id,
+            userids: props.list.id,
           }
         )
         .then((res) => {
@@ -38,33 +38,37 @@ const Edituser = (props) => {
   return (
     <div>
       <form className="editForm" onSubmit={submitUser}>
-        <h2> Edit User Form </h2>
-        <label htmlFor="_name">Name</label>
+        <h2 className="bg-dark text-light"> Edit User Form </h2>
+        <div className="form-group">
+          <label htmlFor="_name">Name</label>
+          <input
+            type="text"
+            id="_name"
+            name="name"
+            value={userInfo.name}
+            onChange={onChangeValue}
+            placeholder="Enter name"
+            autoComplete="off"
+            required
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="_email">Email</label>
+          <input
+            type="email"
+            id="_email"
+            name="email"
+            value={userInfo.email}
+            onChange={onChangeValue}
+            placeholder="Enter email"
+            autoComplete="off"
+            required
+            className="form-control"
+          />
+        </div>
         <input
-          type="text"
-          id="_name"
-          name="name"
-          value={userInfo.name}
-          onChange={onChangeValue}
-          placeholder="Enter name"
-          autoComplete="off"
-          required
-        />
-        <br /> <br />
-        <label htmlFor="_email">Email</label>
-        <input
-          type="email"
-          id="_email"
-          name="email"
-          value={userInfo.email}
-          onChange={onChangeValue}
-          placeholder="Enter email"
-          autoComplete="off"
-          required
-        />
-        <br /> <br />
-        <input
-          className="btn btn-secondary btn-lg"
+          className="btn btn-primary btn-lg"
           type="submit"
           value="UPDATE"
         />
