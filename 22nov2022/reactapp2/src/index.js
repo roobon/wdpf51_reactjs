@@ -11,6 +11,8 @@ import Colors from "./components/colors/colors";
 import reportWebVitals from "./reportWebVitals";
 import LifeCycle from "./components/LifeCycle/LifeCycle";
 import UserList from "./users/UserList";
+import Edituser from "./users/Edituser";
+import Adduser from "./users/Adduser";
 
 export default function RouterApp() {
   return (
@@ -24,6 +26,8 @@ export default function RouterApp() {
           <Route path="/colors" element={<Colors />} />
           <Route path="/lifecycle" element={<LifeCycle />} />
           <Route path="/users" element={<UserList />} />
+          <Route path="/adduser" element={<Adduser />} />
+          <Route path="/users/edit/:id" element={<Edituser />} />
         </Route>
       </Routes>
     </BrowserRouter>

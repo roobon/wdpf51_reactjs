@@ -17,9 +17,12 @@ const Edit = () => {
   const edituserlist = async (ids) => {
     try {
       axios
-        .post(`http://292.468.0.305/Apicrud/getusers.php`, {
-          userids: ids,
-        })
+        .post(
+          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/getuser.php`,
+          {
+            userids: ids,
+          }
+        )
         .then((res) => {
           console.log(res.data.userlist.userdata);
           setuser(res.data.userlist.userdata[0]);

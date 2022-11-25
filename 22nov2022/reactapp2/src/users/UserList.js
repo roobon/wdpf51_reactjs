@@ -11,7 +11,9 @@ const UserList = () => {
   const [isuser, setuser] = useState([]);
   const alluser = async () => {
     axios
-      .get(`http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/users.php`)
+      .get(
+        `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/allusers.php`
+      )
       .then((res) => {
         //console.log(res.data.userdata);
         setuser(res.data.userdata);
@@ -28,7 +30,7 @@ const UserList = () => {
     try {
       axios
         .post(
-          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/deleteusers.php`,
+          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/deleteuser.php`,
           {
             userids: id,
           }
@@ -45,11 +47,6 @@ const UserList = () => {
 
   return (
     <div className="col-sm-8">
-      <Link to="/insert" className="btn btn-primary">
-        Create User
-      </Link>
-      <br />
-
       <table className="table table-striped">
         <thead className="bg-dark text-light">
           <tr>
@@ -83,6 +80,9 @@ const UserList = () => {
           </tbody>
         ))}
       </table>
+      <Link to="/adduser" className="btn btn-primary">
+        Create User
+      </Link>
     </div>
   );
 };

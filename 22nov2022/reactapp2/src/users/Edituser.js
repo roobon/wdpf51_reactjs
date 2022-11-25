@@ -20,11 +20,14 @@ const Edituser = (props) => {
       event.preventDefault();
       event.persist();
       axios
-        .post(`http://292.468.0.305/Apicrud/editusers.php`, {
-          username: userInfo.name,
-          useremail: userInfo.email,
-          userids: props.list.user_id,
-        })
+        .post(
+          `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/edituser.php`,
+          {
+            username: userInfo.name,
+            useremail: userInfo.email,
+            userids: props.list.user_id,
+          }
+        )
         .then((res) => {
           console.log(res.data);
           navigate(`/`);
