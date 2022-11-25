@@ -10,10 +10,7 @@ const Adduser = () => {
     password: "",
   });
   const onChangeValue = (e) => {
-    setuserInfo({
-      ...userInfo,
-      [e.target.name]: e.target.value,
-    });
+    setuserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
   // Inserting a new user into the Database.
   const submitUser = async (event) => {
@@ -32,7 +29,7 @@ const Adduser = () => {
         )
         .then((res) => {
           console.log(res.data);
-          navigate(`/`);
+          navigate(`/users`);
           return;
         });
     } catch (error) {
@@ -54,9 +51,9 @@ const Adduser = () => {
             placeholder="Enter name"
             autoComplete="off"
             required
+            className="form-control"
           />
         </div>
-        <br /> <br />
         <label htmlFor="_email">Email</label>
         <input
           type="email"
@@ -66,8 +63,9 @@ const Adduser = () => {
           placeholder="Enter email"
           autoComplete="off"
           required
+          className="form-control"
         />
-        <br /> <br />
+
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -77,8 +75,14 @@ const Adduser = () => {
           placeholder="Enter Password"
           autoComplete="off"
           required
+          className="form-control"
         />
-        <input type="submit" value="Insert" />
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

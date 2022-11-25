@@ -80,8 +80,8 @@ const UserList = () => {
           </tbody>
         ))}
       </table>
-      <Link to="/adduser" className="btn btn-primary">
-        Create User
+      <Link to="/adduser" className="btn btn-primary btn-lg">
+        Create New User
       </Link>
     </div>
   );
