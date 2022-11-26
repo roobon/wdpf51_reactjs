@@ -7,7 +7,7 @@ if (mysqli_num_rows($allUsers) > 0) {
 		$viewjson["name"] = $row['name'];
 		$viewjson["email"] = $row['email'];
 
-		$json_array["userdata"][] = $viewjson;
+		$json_array["mydata"][] = $viewjson;
 	}
 	//echo json_encode(["success"=>true,"userlist"=>$json_array]);
 	echo json_encode($json_array);

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const UserList = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     alluser();
   }, []);
 
@@ -15,8 +15,8 @@ const UserList = () => {
         `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/allusers.php`
       )
       .then((res) => {
-        //console.log(res.data.userdata);
-        setuser(res.data.userdata);
+        //console.log(res.data.mydata);
+        setuser(res.data.mydata);
       })
       .then((error) => console.log(error));
   };
@@ -31,12 +31,11 @@ const UserList = () => {
       axios
         .post(
           `http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/deleteuser.php`,
-          {
-            userids: id,
-          }
+          { userid: id }
         )
         .then((res) => {
-          setuser([]);
+          //setuser([]);
+          alert(res.data.success);
           alluser();
           return;
         });

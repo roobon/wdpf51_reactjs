@@ -13,6 +13,7 @@ import LifeCycle from "./components/LifeCycle/LifeCycle";
 import UserList from "./users/UserList";
 import Adduser from "./users/Adduser";
 import Edit from "./users/Edit";
+import AllProduct from "./product/AllProduct";
 
 export default function RouterApp() {
   return (
@@ -28,6 +29,7 @@ export default function RouterApp() {
           <Route path="/users" element={<UserList />} />
           <Route path="/adduser" element={<Adduser />} />
           <Route path="/users/edit/:ids" element={<Edit />} />
+          <Route path="/products" element={<AllProduct />} />
         </Route>
       </Routes>
     </BrowserRouter>
