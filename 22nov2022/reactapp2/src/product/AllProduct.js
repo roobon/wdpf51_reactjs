@@ -51,7 +51,7 @@ const AllProduct = () => {
         </thead>
         <tbody>
           {product.map((item, index) => (
-            <tr>
+            <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{item.name}</td>
               <td>{item.details}</td>

@@ -56,7 +56,7 @@ const UserList = () => {
           </tr>
         </thead>
         {isuser.map((item, index) => (
-          <tbody>
+          <tbody key={item.id}>
             <tr>
               <td>{index + 1}</td>
               <td>{item.name}</td>
