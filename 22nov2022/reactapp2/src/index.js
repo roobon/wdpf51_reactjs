@@ -14,6 +14,7 @@ import UserList from "./users/UserList";
 import Adduser from "./users/Adduser";
 import Edit from "./users/Edit";
 import AllProduct from "./product/AllProduct";
+import AddProduct from "./product/AddProduct";
 
 export default function RouterApp() {
   return (
@@ -30,6 +31,7 @@ export default function RouterApp() {
           <Route path="/adduser" element={<Adduser />} />
           <Route path="/users/edit/:ids" element={<Edit />} />
           <Route path="/products" element={<AllProduct />} />
+          <Route path="/products/add" element={<AddProduct />} />
         </Route>
       </Routes>
     </BrowserRouter>

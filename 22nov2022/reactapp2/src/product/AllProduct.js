@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const AllProduct = () => {
   const [product, setProduct] = useState([]);
+
   console.log(product);
 
   useEffect(() => {
@@ -64,6 +66,9 @@ const AllProduct = () => {
           ))}
         </tbody>
       </table>
+      <Link to="/products/add" className="btn btn-secondary">
+        Add new product
+      </Link>
     </div>
   );
 };
