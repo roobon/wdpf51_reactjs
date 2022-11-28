@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/api/db_connection.php
 
 # testing
 /coverage

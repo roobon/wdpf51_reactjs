@@ -1,7 +1,6 @@
 <?php
 require 'db_connection.php';
 
-
 $data = json_decode(file_get_contents("php://input"));
 if (
     isset($data->prid)
@@ -15,8 +14,9 @@ if (
             $viewjson["name"] = $row['name'];
             $viewjson["details"] = $row['details'];
             $viewjson["price"] = $row['price'];
-            $json_array["prdata"] = $viewjson;
+            $json_array["prdata"][] = $viewjson;
         }
+        //echo json_encode($json_array);
         echo json_encode(["success" => true, "product" => $json_array]);
         return;
     } else {

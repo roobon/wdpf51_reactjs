@@ -13,7 +13,7 @@ const Edit = () => {
   }, []);
 
   const [isuser, setuser] = useState([]);
-  //const [isloaduser, setloaduser] = useState(false);
+  const [isloaduser, setloaduser] = useState(false);
   const edituserlist = async (ids) => {
     try {
       axios
@@ -24,16 +24,18 @@ const Edit = () => {
           }
         )
         .then((res) => {
-          console.log(res.data.userlist.userdata);
-          setuser(res.data.userlist.userdata);
-          //setloaduser(true);
+          console.log(res.data.userlist.userdata[0]);
+          setuser(res.data.userlist.userdata[0]);
+          setloaduser(true);
         });
     } catch (error) {
       throw error;
     }
   };
 
-  return <div className="col-sm-8">{<Edituser list={isuser} />}</div>;
+  return (
+    <div className="col-sm-8">{isloaduser && <Edituser list={isuser} />}</div>
+  );
 };
 
 export default Edit;

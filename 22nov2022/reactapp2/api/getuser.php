@@ -14,7 +14,7 @@ if (
 			$viewjson["id"] = $row['id'];
 			$viewjson["name"] = $row['name'];
 			$viewjson["email"] = $row['email'];
-			$json_array["userdata"] = $viewjson;
+			$json_array["userdata"][] = $viewjson;
 		}
 		echo json_encode(["success" => true, "userlist" => $json_array]);
 		return;
