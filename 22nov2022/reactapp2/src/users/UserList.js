@@ -55,9 +55,9 @@ const UserList = () => {
             <th>Action</th>
           </tr>
         </thead>
-        {isuser.map((item, index) => (
-          <tbody key={item.id}>
-            <tr>
+        <tbody>
+          {isuser.map((item, index) => (
+            <tr key={item.id}>
               <td>{index + 1}</td>
               <td>{item.name}</td>
               <td>{item.email}</td>
@@ -76,8 +76,8 @@ const UserList = () => {
                 </span>
               </td>
             </tr>
-          </tbody>
-        ))}
+          ))}
+        </tbody>
       </table>
       <Link to="/adduser" className="btn btn-primary btn-lg">
         Create New User

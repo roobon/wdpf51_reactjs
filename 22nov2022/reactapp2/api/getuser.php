@@ -1,5 +1,7 @@
 <?php
 require 'db_connection.php';
+
+
 $data = json_decode(file_get_contents("php://input"));
 if (
 	isset($data->userids)
@@ -12,7 +14,7 @@ if (
 			$viewjson["id"] = $row['id'];
 			$viewjson["name"] = $row['name'];
 			$viewjson["email"] = $row['email'];
-			$json_array["userdata"][] = $viewjson;
+			$json_array["userdata"] = $viewjson;
 		}
 		echo json_encode(["success" => true, "userlist" => $json_array]);
 		return;

@@ -59,7 +59,12 @@ const AllProduct = () => {
               <td>{item.details}</td>
               <td>{item.price}</td>
               <td>
-                <button>Edit</button>
+                <Link
+                  to={`/products/edit/${item.id}`}
+                  className="btn btn-primary"
+                >
+                  Edit
+                </Link>
                 <button onClick={() => delconfirm(item.id)}>Delete</button>
               </td>
             </tr>
