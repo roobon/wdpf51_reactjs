@@ -8,7 +8,7 @@ const EditProduct = () => {
   useEffect(() => {
     productone(params.pid);
   });
-  console.log("MyID:" + params.pid);
+  //console.log("MyID:" + params.pid);
   const productone = (id) =>
     axios.get(
       "http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/getproduct.php",
