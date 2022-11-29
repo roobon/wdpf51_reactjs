@@ -1,17 +1,43 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const EditProduct = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState([]);
 
-  //console.log(product);
+  console.log(product);
+
+  const submitValue = (e) => {
+    e.preventDefault();
+    productsubmit();
+  };
+  // Update data send to Database
+  const productsubmit = () =>
+    axios
+      .post(
+        "http://localhost/wdpf51_reactjs/22nov2022/reactapp2/api/updateproduct.php",
+        {
+          prid: product.id,
+          prname: product.name,
+          prprice: product.price,
+          prdet: product.details,
+        }
+      )
+      .then((res) => {
+        navigate("/products");
+        //console.log(res.data.product.prdata[0]);
+      });
 
   useEffect(() => {
     productone(params.pid);
-  });
+  }, []);
   //console.log("MyID:" + params.pid);
+  const changeValue = (e) => {
+    setProduct({ ...product, [e.target.name]: e.target.value });
+  };
+  // Data Display for Editing
   const productone = (id) =>
     axios
       .post(
@@ -27,14 +53,14 @@ const EditProduct = () => {
   return (
     <div className="col-sm-8">
       <h1>Edit Product</h1>
-      <form>
+      <form onSubmit={submitValue}>
         <div className="form-group">
           <label>Product Name</label>
           <input
             type="text"
             name="name"
             value={product.name}
-            onChange={(e) => setProduct(e.target.value)}
+            onChange={changeValue}
             className="form-control"
           />
         </div>
@@ -44,7 +70,7 @@ const EditProduct = () => {
             className="form-control"
             name="details"
             value={product.details}
-            onChange={(e) => setProduct(e.target.value)}
+            onChange={changeValue}
             type="text"
           ></textarea>
         </div>
@@ -53,7 +79,7 @@ const EditProduct = () => {
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setProduct(e.target.value)}
+            onChange={changeValue}
             name="price"
             value={product.price}
           />
